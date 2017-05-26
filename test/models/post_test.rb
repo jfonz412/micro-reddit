@@ -3,7 +3,8 @@ require 'test_helper'
 class PostTest < ActiveSupport::TestCase
 
 	def setup
-		@post = Post.new(title: "Foo Bar", link: "https://foo_bar.com", user_id: 1)
+		User.create(name: "Mr. Foo")
+		@post = User.first.posts.build(title: "Foo Bar", link: "www.foobar.com")
 	end
 
 	test "post is valid" do
