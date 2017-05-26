@@ -1,4 +1,5 @@
 class Post < ApplicationRecord
+	belongs_to :user
 	validates :title, presence: true, length: { minimum: 3, maximum: 255 }
 	# URL Regex will not accept "shortened" links like foobar.com, must be www.foobar.com
 	VALID_URL_REGEX = /((([A-Za-z]{3,9}:(?:\/\/)?)(?:[\-;:&=\+\$,\w]+@)?[A-Za-z0-9\.\-]+|(?:www\.|[\-;:&=\+\$,\w]+@)[A-Za-z0-9\.\-]+)((?:\/[\+~%\/\.\w\-_]*)?\??(?:[\-\+=&;%@\.\w_]*)#?(?:[\.\!\/\\\w]*))?)/
