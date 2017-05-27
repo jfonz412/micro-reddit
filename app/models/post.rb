@@ -1,4 +1,5 @@
 class Post < ApplicationRecord
+	has_many :comments
 	belongs_to :user # generated via migration, but this line was manually added
 	validates :title, presence: true, length: { minimum: 3, maximum: 255 }
 	# URL Regex will not accept "shortened" links like foobar.com, must be www.foobar.com
