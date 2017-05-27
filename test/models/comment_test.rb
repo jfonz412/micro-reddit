@@ -4,8 +4,13 @@ class CommentTest < ActiveSupport::TestCase
 
 	def setup
 		User.create(name: "Mr. Foo")
-		User.first.posts.build(title: "Foo Bar", link: "www.foobar.com")
-		@comment = Comment.new(text:"This is the first ever micro-reddit comment.")
+		user = User.first
+
+		user.posts.build(title: "Foo Bar", link: "www.foobar.com")
+		post = Post.first
+
+		@comment = Comment.new(text:"This is the first ever micro-reddit comment.", 
+							   post_id: post.id, user_id: user.id)
 	end
 
 	test "should be valid" do
